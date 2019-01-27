@@ -1,5 +1,5 @@
 {
-    "name": "ilanco/laravel-maxmind-minfraud",
+    "name": "ep4/laravel-maxmind-minfraud",
     "description": "Integerates MaxMind minFraud with Laravel and provides an easy configuration.",
     "keywords": ["maxmind", "minfraud", "laravel", "laravel5"],
     "authors": [
