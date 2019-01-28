@@ -45,13 +45,7 @@ class MaxMindMinFraud
         $input = $request->input();
 
         $mfRequest = $fraudDetection->withDevice([
-            'ip_address' => $request->ip(),
-        ])->withCreditCard([
-            'issuer_id_number' => substr($input['card']['number'], 0, 6),
-            'last_4_digits' => substr($input['card']['number'], -4)
-        ])->withOrder([
-            'amount' => $input['amount'],
-            'currency' => $input['currency']
+            'ip_address' => $request->ip()
         ]);
 
         $insightsResponse = $mfRequest->insights();
