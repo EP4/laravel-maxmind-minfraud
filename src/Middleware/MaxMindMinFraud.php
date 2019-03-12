@@ -45,7 +45,7 @@ class MaxMindMinFraud
         $input = $request->input();
 
         $mfRequest = $fraudDetection
-            ->withDevice(['ip_address' => $request->ip()])
+            ->withDevice(['ip_address' => $_SERVER['HTTP_X_FORWARDED_FOR']])
             ->withEmail(['address' => $request->email]);
 
         $insightsResponse = $mfRequest->insights();
