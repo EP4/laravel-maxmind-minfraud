@@ -43,10 +43,20 @@ class MaxMindMinFraud
         $fraudDetection = $this->container['maxmind.minfraud'];
 
         $input = $request->input();
+        $email = '';
+
+        if (! $request->user()) {
+            $email = $request->email;
+        } elseif ($request->user()) {
+            $email = $request->user()->email;
+        }
 
         $mfRequest = $fraudDetection
-            ->withDevice(['ip_address' => $_SERVER['HTTP_X_FORWARDED_FOR']])
-            ->withEmail(['address' => $request->email]);
+            ->withDevice([
+                'ip_address' => $_SERVER['HTTP_X_FORWARDED_FOR'],
+                'user_agent' => $_SERVER['HTTP_USER_AGENT'],
+            ])
+            ->withEmail(['address' => $email]);
 
         $insightsResponse = $mfRequest->insights();
 
