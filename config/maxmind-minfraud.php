@@ -32,6 +32,6 @@ return [
      *
      * @type string
      */
-    'default_response_model' => env('MAXMIND_DEFAULT_RESPONSE_MODEL', 'insights'),
+    'default_response_model' => env('MAXMIND_DEFAULT_RESPONSE_MODEL', 'score'),
 
 ];

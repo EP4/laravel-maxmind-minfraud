@@ -58,9 +58,9 @@ class MaxMindMinFraud
             ])
             ->withEmail(['address' => $email]);
 
-        $insightsResponse = $mfRequest->insights();
+        $scoreResponse = $mfRequest->score();
 
-        if ($insightsResponse->riskScore > 30) {
+        if ($scoreResponse->riskScore > 30) {
             throw new PreconditionFailedHttpException('This transaction has been flagged as fraudulent.');
         }
 
