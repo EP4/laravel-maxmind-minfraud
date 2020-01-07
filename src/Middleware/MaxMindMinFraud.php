@@ -55,6 +55,7 @@ class MaxMindMinFraud
             ->withDevice([
                 'ip_address' => $_SERVER['HTTP_X_FORWARDED_FOR'],
                 'user_agent' => $_SERVER['HTTP_USER_AGENT'],
+                'accept_language' => $_SERVER['HTTP_ACCEPT_LANGUAGE'],
             ])
             ->withEmail(['address' => $email]);
 
